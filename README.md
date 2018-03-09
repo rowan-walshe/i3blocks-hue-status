@@ -35,5 +35,3 @@ Select Colour - Middle Click
     * You'll need to update line 34 of app.js with your own username
 2. The colour picker is not good
     * I will try and make it better when I learn how to and have time
-3. The colour conversion does not work perfectly at all
-    * Again I will try and make this better when I learn how
