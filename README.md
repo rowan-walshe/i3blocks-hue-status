@@ -5,13 +5,13 @@ I have just got this working as a proof of concept. To get it working on any oth
 
 I aim to update it to be more generally usable.
 
-###Requirements
+### Requirements
 * Node
 * node-hue-api
 * yad
 * font-awesome
 
-###Sample config
+### Sample config
 ```
 [light]
 command=/home/rowan/Documents/GitHub/Light-Control/app.js
@@ -19,7 +19,7 @@ interval=10
 markup=pango
 ```
 
-###Controls
+### Controls
 ```
 On - Left Click
 Off - Right Click
@@ -28,7 +28,7 @@ Dimmer - Scroll Down
 Select Colour - Middle Click
 ```
 
-###Thinks to note with this version
+### Thinks to note with this version
 1. It does not currently detect try to connect to your hue bridge
     * Instructions to set this up are [here](https://github.com/peter-murray/node-hue-api#examples)
     * You'll need to update the bridge's IP on line 33
