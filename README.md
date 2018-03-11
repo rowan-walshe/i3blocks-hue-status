@@ -5,6 +5,10 @@ I have just got this working as a proof of concept. To get it working on any oth
 
 I aim to update it to be more generally usable.
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/9976046/37248460-bcbc0472-24ca-11e8-9885-183edd1a986a.png" alt="Pic of Color Picker"/>
+</p>
+
 ### Requirements
 * Node
 * Node dependencies
