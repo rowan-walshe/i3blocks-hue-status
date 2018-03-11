@@ -32,8 +32,6 @@ function createWindow () {
     slashes: true
   }))
 
-  mainWindow.setPosition(3120,1100)
-
   // Comment out to not show on startup
   // mainWindow.on('ready-to-show', mainWindow.show)
   

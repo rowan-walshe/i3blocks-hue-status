@@ -7,16 +7,20 @@ I aim to update it to be more generally usable.
 
 ### Requirements
 * Node
-* node-hue-api
-* yad
+* Node dependencies
 * font-awesome
 
-### Sample config
+### Sample i3blocks.conf
 ```
 [light]
 command=/home/rowan/Documents/GitHub/Light-Control/app.js
-interval=10
+interval=1
 markup=pango
+```
+
+### Add to i3 config
+```
+for_window [class="electron-hue-color-picker"] floating enable
 ```
 
 ### Controls
@@ -33,5 +37,7 @@ Select Colour - Middle Click
     * Instructions to set this up are [here](https://github.com/peter-murray/node-hue-api#examples)
     * You'll need to update the bridge's IP on line 33 of app.js
     * You'll need to update line 34 of app.js with your own username
-2. The colour picker is not good
+2. It does not dynamically detect the size of the screen, and so on most screens you will probably find it appearing in the middle
+	* You can change the position it appear at on line 39 and 49 of main.js (the elctron app)
+3. The colour picker is better than it was, but still not perfect
     * I will try and make it better when I learn how to and have time

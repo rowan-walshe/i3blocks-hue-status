@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron . 192.168.0.51 q9DF5gSoJPgq-E4Z05gzXMduLVD1RzU9kY47eBkM"
+    "start": "electron . 192.168.0.51 q9DF5gSoJPgq-E4Z05gzXMduLVD1RzU9kY47eBkM --enable-transparent-visuals --disable-gpu"
   },  
   "author": "",
   "license": "MIT",
