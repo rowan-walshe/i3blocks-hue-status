@@ -5,6 +5,8 @@ I have just got this working as a proof of concept. To get it working on any oth
 
 I aim to update it to be more generally usable.
 
+![hue](https://user-images.githubusercontent.com/9976046/37248423-1c14d24c-24ca-11e8-99da-65d74f93d324.png)
+
 ### Requirements
 * Node
 * Node dependencies
