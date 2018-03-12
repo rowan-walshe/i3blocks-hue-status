@@ -35,14 +35,17 @@ Scroll Down - Decrease brightness
 Middle Click - Select Colour
 ```
 
-### Thinks to note with this version
+### Setup Instructions
 1. Unzip the release to ~/.config/i3/
 	* You should then have the following
 		* ~/.config/i3/Light-Control/app
 		* ~/.config/i3/Light-Control/electron-hue-color-picker-linux-x64
-	* If you want to change these directories, then you will have to download the source code, install the node dependencies and change HUE_APP_LOCATION
-	* I will try and find a nicer way to allow you to change this in the future
-2. I'm unsure how this will work with multi-monitor setups and am unable to test it
-3. The colour picker is better than it was, but still not perfect
+	* You can put the app executable wherever, but the electron app must currently be in this directory path
+	* If you want to change the elctron app path, download the source code, install the node dependencies and change HUE_APP_LOCATION in app.js
+2. Add the require lines to i3blocks.conf and your i3 config
+
+### Thinks to note with this version
+1. I'm unsure how this will work with multi-monitor setups and am unable to test it
+2. The colour picker is better than it was, but still not perfect
     * I will try and make it better when I learn how to and have time
 
