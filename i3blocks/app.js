@@ -12,12 +12,17 @@ const HUE_APP_LOCATION = process.env['HOME'] + '/.config/i3/Light-Control/electr
 
 var connected_to_app = false
 
-ipc.config = {
-    ...ipc.config,
-    id: 'i3blocks-hue',
-    stopRetrying: true,
-    silent: true
-}
+// ipc.config = {
+//     ...ipc.config,
+//     id: 'i3blocks-hue',
+//     stopRetrying: true,
+//     silent: true
+// }
+
+// As spread operator is not working
+ipc.config.id = 'i3blocks-hue'
+ipc.config.stopRetrying = true
+ipc.config.silent = true
 
 function componentToHex(c) {
     var hex = c.toString(16);
