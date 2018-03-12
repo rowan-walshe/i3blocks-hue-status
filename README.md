@@ -41,7 +41,7 @@ Middle Click - Select Colour
 		* ~/.config/i3/Light-Control/app
 		* ~/.config/i3/Light-Control/electron-hue-color-picker-linux-x64
 	* You can put the app executable wherever you want, just update your i3blocks config
-	* If you change the location of the electron-hue-color-picker, add the new location as an argument in your i3blocks.conf. E.g.
+	* If you change the location of the electron-hue-color-picker, add the new location as an argument in your i3blocks config
 		* `command=/home/rowan/.config/i3/Light-Control/app ~/.config/i3/electron-hue-color-picker`
 2. Add the require lines to i3blocks.conf and your i3 config
 
