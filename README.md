@@ -36,7 +36,7 @@ Middle Click - Select Colour
 ```
 
 ### Setup Instructions
-1. Unzip the release to ~/.config/i3/
+1. Unzip the release to $SCRIPT_DIR
 	* You should then have the following
 		* $SCRIPT_DIR/hue-status
 		* $SCRIPT_DIR/electron-hue-color-picker-linux-x64
