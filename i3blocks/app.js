@@ -8,7 +8,7 @@ const { cie_to_rgb, rgb_to_cie } = require("./convert-color")
 
 const LIGHT_ID = 1
 const HUE_CONFIG_FILE = '/.hue'
-const HUE_APP_LOCATION = process.env['HOME'] + '/.config/i3/Light-Control/electron-hue-color-picker-linux-x64/electron-hue-color-picker'
+const HUE_APP_LOCATION = process.argv[2]?process.argv[2]:process.env['HOME'] + '/.config/i3/Light-Control/electron-hue-color-picker-linux-x64/electron-hue-color-picker'
 
 var connected_to_app = false
 
