@@ -1,3 +1,4 @@
+const electron = require('electron')
 const { app, BrowserWindow, ipcMain } = require('electron')
 
 const path = require('path')
@@ -8,6 +9,11 @@ const fs = require('fs')
 let mainWindow
 
 var config = fs.readFileSync(process.env['HOME'] + '/.hue', {encoding: 'UTF-8'}).split('\n')
+var window_offset = {}
+var window_size = {
+  width: 320,
+  height: 320
+}
 
 global.sharedObject = {config}
 
@@ -26,7 +32,7 @@ ipc.config.silent = true
 
 function createWindow () {
 
-  mainWindow = new BrowserWindow({width: 320, height: 320, frame: false, show: false})
+  mainWindow = new BrowserWindow({width: window_size.width, height: window_size.height, frame: false, show: false})
   // mainWindow = new BrowserWindow({width: 1000, height: 1000, frame: false, show: false})
 
   mainWindow.loadURL(url.format({
@@ -39,7 +45,7 @@ function createWindow () {
   // mainWindow.on('ready-to-show', mainWindow.show)
   
   mainWindow.on('show', () => {
-    mainWindow.setPosition(3120,1100)
+    mainWindow.setPosition(window_offset.x, window_offset.y)
   })
 
   mainWindow.on('close', function(e){
@@ -49,13 +55,18 @@ function createWindow () {
   })
 
   mainWindow.on('move', (e) => {
-    mainWindow.setPosition(3120,1100)
+    mainWindow.setPosition(window_offset.x ,window_offset.y)
   })
 
 }
 
 // Create a window whent he app is ready
-app.on('ready', createWindow)
+app.on('ready', () => {
+  let display = electron.screen.getPrimaryDisplay()
+  window_offset.x = display.workArea.width - window_size.width 
+  window_offset.y = display.workArea.height - window_size.height - 20
+  createWindow()
+})
 
 // Quit when all windows are closed.
 app.on('window-all-closed', app.quit)
