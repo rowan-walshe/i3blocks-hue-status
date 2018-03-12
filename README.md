@@ -47,6 +47,6 @@ Middle Click - Select Colour
 
 ### Thinks to note with this version
 1. I'm unsure how this will work with multi-monitor setups and am unable to test it
-2. The colour picker is better than it was, but still not perfect
+2. The first time you middle click it after boot, it will take longer to open up the color picker than all subsequent times
+3. The colour picker is better than it was, but still not perfect
     * I will try and make it better when I learn how to and have time
-
