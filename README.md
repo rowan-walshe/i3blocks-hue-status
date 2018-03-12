@@ -16,7 +16,7 @@ I have just got this working as a proof of concept, and has a very limited featu
 ### Sample i3blocks.conf
 ```
 [light]
-command=/home/rowan/.config/i3/Light-Control/app
+command=$SCRIPT_DIR/app $SCRIPT_DIR/electron-hue-color-picker-linux-x64/electron-hue-color-picker
 interval=1
 markup=pango
 ```
@@ -50,3 +50,4 @@ Middle Click - Select Colour
 2. The first time you middle click it after boot, it will take longer to open up the color picker than all subsequent times
 3. The colour picker is better than it was, but still not perfect
     * I will try and make it better when I learn how to and have time
+4. You may use it without the electron-hue-color-picker, and it will retain all functionality, except changing colors
