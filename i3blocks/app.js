@@ -1,13 +1,16 @@
 #!/usr/bin/env node
-const child_process = require("child_process")
 const fs = require('fs')
 const ipc = require('node-ipc');
 const hue = require("node-hue-api")
+const { spawn } = require('child_process')
 const { lightState, HueApi } = hue
 const { cie_to_rgb, rgb_to_cie } = require("./convert-color")
 
 const LIGHT_ID = 1
 const HUE_CONFIG_FILE = '/.hue'
+const HUE_APP_LOCATION = process.env['HOME'] + '/.config/i3/Light-Control/electron-color-picker/releases/electron-hue-color-picker-linux-x64/electron-hue-color-picker'
+
+var connected_to_app = false
 
 ipc.config = {
     ...ipc.config,
@@ -45,6 +48,18 @@ function findHueBridge() {
     .done();
 }
 
+function sendShowMessage(kill) {
+    ipc.connectTo('i3blocks-hue-app', () => {
+        ipc.of['i3blocks-hue-app'].on('connect', () => {
+            connected_to_app = true
+            ipc.of['i3blocks-hue-app'].emit('show-color-picker', "show")
+            if(kill)
+                process.exit()
+            ipc.disconnect('i3blocks-hue-app')
+        })
+    })
+}
+
 function main(ipaddress, user) {
     var api = new HueApi(ipaddress, user)
     var state = lightState.create()
@@ -66,12 +81,17 @@ function main(ipaddress, user) {
             .done()
             break;
         case '2':
-            ipc.connectTo('i3blocks-hue-app', () => {
-              ipc.of['i3blocks-hue-app'].on('connect', () => {
-                ipc.of['i3blocks-hue-app'].emit('show-color-picker', "show")
-                ipc.disconnect('i3blocks-hue-app')
-              })
-            })
+            sendShowMessage(false)
+
+            setTimeout(() => {
+                if(!connected_to_app) {
+                    ipc.disconnect('i3blocks-hue-app')
+                    app = spawn(HUE_APP_LOCATION, [], {detached: true})
+                    app.stdout.on('data', (data) => {
+                        sendShowMessage(true)
+                    })
+                }
+            }, 100)
             api.lightStatusWithRGB(LIGHT_ID)
             .then(displayBrightness)
             .done()
