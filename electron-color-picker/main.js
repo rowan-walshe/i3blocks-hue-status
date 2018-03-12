@@ -3,10 +3,13 @@ const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const url = require('url')
 const ipc = require('node-ipc')
+const fs = require('fs')
 
 let mainWindow
 
-global.sharedObject = {argv: process.argv}
+var config = fs.readFileSync(process.env['HOME'] + '/.hue', {encoding: 'UTF-8'}).split('\n')
+
+global.sharedObject = {config}
 
 // Spread operator through error?
 // ipc.config = {
@@ -23,8 +26,8 @@ ipc.config.silent = true
 
 function createWindow () {
 
-  // mainWindow = new BrowserWindow({width: 320, height: 320, frame: false, transparent: true, show: false})
   mainWindow = new BrowserWindow({width: 320, height: 320, frame: false, show: false})
+  // mainWindow = new BrowserWindow({width: 1000, height: 1000, frame: false, show: false})
 
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),

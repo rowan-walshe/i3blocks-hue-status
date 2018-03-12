@@ -8,10 +8,10 @@ const { lightState, HueApi } = require("node-hue-api")
 const LIGHT_ID = 1
 const NS_PER_SEC = 1e9
 
-const argv = remote.getGlobal('sharedObject').argv
+const config = remote.getGlobal('sharedObject').config
 
-var host = argv[2],
-    username = argv[3],
+var host = config[0],
+    username = config[1],
     api = new HueApi(host, username),
     state = lightState.create()
 
